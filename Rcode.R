@@ -487,6 +487,7 @@ watts.cif <- as.data.frame(cbind("constraint"=c(mean(as.numeric(as.data.frame(t(
 
 watts.cif$week <- c(1:22)
 watts.cif$type <- "watts"
+
 watts.chile1 <- replicate(100,simulate.watts(chile1))
 watts.chile2 <- replicate(100,simulate.watts(chile2))
 watts.chile3 <- replicate(100,simulate.watts(chile3))
@@ -698,6 +699,9 @@ grid.arrange(ows.plot1,ows.plot2, nrow=2)
 cif.df$type <- "observed"
 c_cif <- rbind(cif.df,erdos.cif,watts.cif, bar.cif)
 write.csv(c_cif, file="~/Dropbox/UCL/PhD/APR paper/cif_final.csv")
+
+qplot(week,constraint,data=c_cif,color=type, fill=type, geom="line") + scale_x_discrete(breaks=c(1:22))
+qplot(week,trans,data=c_cif,color=type, fill=type, geom="line") + scale_x_discrete(breaks=c(1:22))
 
 cif.plot1 <- ggplot(c_cif, aes(week,constraint, group=type, colour=type)) + geom_line() +
   scale_x_discrete("Weeks", breaks=c(1:22)) + 
