@@ -161,6 +161,6 @@ cif.test$constraint.watts <- (c(cif.watts.ct1$p.value,cif.watts.ct2$p.value,cif.
 cif.test$trans.bar <- (c(cif.bar.tt1$p.value,cif.bar.tt2$p.value,cif.bar.tt3$p.value,cif.bar.tt4$p.value,cif.bar.tt5$p.value,cif.bar.tt6$p.value,cif.bar.tt7$p.value,cif.bar.tt8$p.value,cif.bar.tt9$p.value,cif.bar.tt10$p.value, cif.bar.tt11$p.value, cif.bar.tt12$p.value, cif.bar.tt13$p.value, cif.bar.tt14$p.value, cif.bar.tt15$p.value, cif.bar.tt16$p.value, cif.bar.tt17$p.value, cif.bar.tt18$p.value, cif.bar.tt19$p.value, cif.bar.tt20$p.value, cif.bar.tt21$p.value, cif.bar.tt22$p.value))
 cif.test$trans.erdos <- (c(cif.erdos.tt1$p.value,cif.erdos.tt2$p.value,cif.erdos.tt3$p.value,cif.erdos.tt4$p.value,cif.erdos.tt5$p.value,cif.erdos.tt6$p.value,cif.erdos.tt7$p.value,cif.erdos.tt8$p.value,cif.erdos.tt9$p.value,cif.erdos.tt10$p.value, cif.erdos.tt11$p.value, cif.erdos.tt12$p.value, cif.erdos.tt13$p.value, cif.erdos.tt14$p.value, cif.erdos.tt15$p.value, cif.erdos.tt16$p.value, cif.erdos.tt17$p.value, cif.erdos.tt18$p.value, cif.erdos.tt19$p.value, cif.erdos.tt20$p.value, cif.erdos.tt21$p.value, cif.erdos.tt22$p.value))
 cif.test$trans.watts <- (c(cif.watts.tt1$p.value,cif.watts.tt2$p.value,cif.watts.tt3$p.value,cif.watts.tt4$p.value,cif.watts.tt5$p.value,cif.watts.tt6$p.value,cif.watts.tt7$p.value,cif.watts.tt8$p.value,cif.watts.tt9$p.value,cif.watts.tt10$p.value, cif.watts.tt11$p.value, cif.watts.tt12$p.value, cif.watts.tt13$p.value, cif.watts.tt14$p.value, cif.watts.tt15$p.value, cif.watts.tt16$p.value, cif.watts.tt17$p.value, cif.watts.tt18$p.value, cif.watts.tt19$p.value, cif.watts.tt20$p.value, cif.watts.tt21$p.value, cif.watts.tt22$p.value))
-
+cif.test <- format(round(cif.test, 2), nsmall = 3)
 View(cif.test)
-
+write.csv(cif.test, "cif_test.csv")
