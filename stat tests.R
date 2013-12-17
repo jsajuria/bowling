@@ -1,4 +1,3 @@
-### T-tests
 
 
 cif.bar.ct1 <- t.test(cif1.constraint,as.numeric(as.data.frame(t(as.data.frame(cif.bar1)))$constraint))
