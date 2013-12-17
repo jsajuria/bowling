@@ -701,7 +701,7 @@ c_cif <- rbind(cif.df,erdos.cif,watts.cif, bar.cif)
 write.csv(c_cif, file="~/Dropbox/UCL/PhD/APR paper/cif_final.csv")
 
 qplot(week,constraint,data=c_cif,color=type, fill=type, geom="line") + scale_x_discrete(breaks=c(1:22))
-qplot(week,trans,data=c_cif,color=type, fill=type, geom="line") + scale_x_discrete(breaks=c(1:22))
+qplot(week,trans,data=c_cif,color=type, fill=type, geom="smooth") + scale_x_discrete(breaks=c(1:22))
 
 cif.plot1 <- ggplot(c_cif, aes(week,constraint, group=type, colour=type)) + geom_line() +
   scale_x_discrete("Weeks", breaks=c(1:22)) + 
