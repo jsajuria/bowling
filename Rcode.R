@@ -516,19 +516,19 @@ watts.chile$type <- "watts"
 
 #Barabasi
 
-ows.bar1 <- replicate(100, simulate.barabasi(vcount(ows1)))
-ows.bar2 <- replicate(100, simulate.barabasi(vcount(ows2)))
-ows.bar3 <- replicate(100, simulate.barabasi(vcount(ows3)))
-ows.bar4 <- replicate(100, simulate.barabasi(vcount(ows4)))
-ows.bar5 <- replicate(100, simulate.barabasi(vcount(ows5)))
-ows.bar6 <- replicate(100, simulate.barabasi(vcount(ows6)))
-ows.bar7 <- replicate(100, simulate.barabasi(vcount(ows7)))
-ows.bar8 <- replicate(100, simulate.barabasi(vcount(ows8)))
-ows.bar9 <- replicate(100, simulate.barabasi(vcount(ows9)))
-ows.bar10 <- replicate(100, simulate.barabasi(vcount(ows10)))
-ows.bar11 <- replicate(100, simulate.barabasi(vcount(ows11)))
-ows.bar12 <- replicate(100, simulate.barabasi(vcount(ows12)))
-ows.bar13 <- replicate(100, simulate.barabasi(vcount(ows13)))
+ows.bar1 <- replicate(100, simulate.barabasi(ows1))
+ows.bar2 <- replicate(100, simulate.barabasi(ows2))
+ows.bar3 <- replicate(100, simulate.barabasi(ows3))
+ows.bar4 <- replicate(100, simulate.barabasi(ows4))
+ows.bar5 <- replicate(100, simulate.barabasi(ows5))
+ows.bar6 <- replicate(100, simulate.barabasi(ows6))
+ows.bar7 <- replicate(100, simulate.barabasi(ows7))
+ows.bar8 <- replicate(100, simulate.barabasi(ows8))
+ows.bar9 <- replicate(100, simulate.barabasi(ows9))
+ows.bar10 <- replicate(100, simulate.barabasi(ows10))
+ows.bar11 <- replicate(100, simulate.barabasi(ows11))
+ows.bar12 <- replicate(100, simulate.barabasi(ows12))
+ows.bar13 <- replicate(100, simulate.barabasi(ows13))
 
 bar.ows <- as.data.frame(cbind("constraint"=c(mean(as.numeric(as.data.frame(t(as.data.frame(ows.bar1)))$constraint)),
                                               mean(as.numeric(as.data.frame(t(as.data.frame(ows.bar2)))$constraint)),
