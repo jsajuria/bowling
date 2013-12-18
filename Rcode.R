@@ -700,16 +700,24 @@ cif.df$type <- "observed"
 c_cif <- rbind(cif.df,erdos.cif,watts.cif, bar.cif)
 write.csv(c_cif, file="~/Dropbox/UCL/PhD/APR paper/cif_final.csv")
 
-qplot(week,constraint,data=c_cif,color=type, fill=type, geom="line") + scale_x_discrete(breaks=c(1:22))
-qplot(week,trans,data=c_cif,color=type, fill=type, geom="smooth") + scale_x_discrete(breaks=c(1:22))
+qplot(week,constraint,data=c_cif,color=type, fill=type, geom="line") + 
+  scale_x_discrete("Weeks",breaks=c(1:22)) + 
+  scale_y_continuous("Network Constraint")
+  scale_color_hue("Type of Network", labels=c("Barabasi-Albert","Random Grahps", "Observed Values", "Watts-Strogatz"))
 
-cif.plot1 <- ggplot(c_cif, aes(week,constraint, group=type, colour=type)) + geom_line() +
+qplot(week,trans,data=c_cif,color=type, fill=type, geom="line") + 
+  scale_x_discrete(breaks=c(1:22)) +
+  scale_y_continuous("Ag. Local Clustering Coefficient") +
+  scale_color_hue("Type of Network", labels=c("Barabasi-Albert","Random Grahps", "Observed Values", "Watts-Strogatz"))
+
+
+cif.plot1 <- ggplot(c_cif, aes(week,constraint, group=type, colour=type)) + geom_smooth(se=F) +
   scale_x_discrete("Weeks", breaks=c(1:22)) + 
   scale_y_continuous("Average Network Constraint") +
   scale_color_hue("Type of Network", labels=c("Randon Graphs \nSimulations", "Observed Networks", "Watts-Strogatz \n Simulations", "Barabasi")) +
   ggtitle("Network Constraint - IF")
 
-cif.plot2 <- ggplot(c_cif, aes(week,trans, group=type, colour=type)) + geom_line() +
+cif.plot2 <- ggplot(c_cif, aes(week,trans, group=type, colour=type)) + geom_smooth(se=F) +
   scale_x_discrete("Weeks", breaks=c(1:22)) + 
   scale_y_continuous("Average Local Clustering Coefficient") +
   scale_color_hue("Type of Network", labels=c("Randon Graphs \nSimulations", "Observed Networks", "Watts-Strogatz \n Simulations", "Barabasi")) +
