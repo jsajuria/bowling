@@ -1,6 +1,7 @@
 # T-tests
+# CIF
 
-## Constraint IF t-tests
+## Constraint 
 
 ### Barabasi
 
@@ -164,3 +165,85 @@ cif.test$trans.watts <- (c(cif.watts.tt1$p.value,cif.watts.tt2$p.value,cif.watts
 cif.test <- format(round(cif.test, 2), nsmall = 3)
 View(cif.test)
 write.csv(cif.test, "cif_test.csv")
+
+# Chile
+
+## Constraint Chile
+
+### Barabasi
+
+chile.bar.ct1 <- t.test(chile1.constraint,as.numeric(as.data.frame(t(as.data.frame(chile.bar1)))$V1))
+chile.bar.ct2 <- t.test(chile2.constraint,as.numeric(as.data.frame(t(as.data.frame(chile.bar2)))$V1))
+chile.bar.ct3 <- t.test(chile3.constraint,as.numeric(as.data.frame(t(as.data.frame(chile.bar3)))$V1))
+chile.bar.ct4 <- t.test(chile4.constraint,as.numeric(as.data.frame(t(as.data.frame(chile.bar4)))$V1))
+chile.bar.ct5 <- t.test(chile5.constraint,as.numeric(as.data.frame(t(as.data.frame(chile.bar5)))$V1))
+chile.bar.ct6 <- t.test(chile6.constraint,as.numeric(as.data.frame(t(as.data.frame(chile.bar6)))$V1))
+chile.bar.ct7 <- t.test(chile7.constraint,as.numeric(as.data.frame(t(as.data.frame(chile.bar7)))$V1))
+
+
+### Erdos
+
+chile.erdos.ct1 <- t.test(chile1.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.chile1)))$constraint))
+chile.erdos.ct2 <- t.test(chile2.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.chile2)))$constraint))
+chile.erdos.ct3 <- t.test(chile3.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.chile3)))$constraint))
+chile.erdos.ct4 <- t.test(chile4.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.chile4)))$constraint))
+chile.erdos.ct5 <- t.test(chile5.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.chile5)))$constraint))
+chile.erdos.ct6 <- t.test(chile6.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.chile6)))$constraint))
+chile.erdos.ct7 <- t.test(chile7.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.chile7)))$constraint))
+
+### Watts
+
+chile.watts.ct1 <- t.test(chile1.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.chile1)))$constraint))
+chile.watts.ct2 <- t.test(chile2.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.chile2)))$constraint))
+chile.watts.ct3 <- t.test(chile3.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.chile3)))$constraint))
+chile.watts.ct4 <- t.test(chile4.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.chile4)))$constraint))
+chile.watts.ct5 <- t.test(chile5.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.chile5)))$constraint))
+chile.watts.ct6 <- t.test(chile6.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.chile6)))$constraint))
+chile.watts.ct7 <- t.test(chile7.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.chile7)))$constraint))
+
+
+## Transitivity
+
+### Barabasi
+
+chile.bar.tt1 <- t.test(!is.na(transitivity(chile1, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(chile.bar1)))$V2))
+chile.bar.tt2 <- t.test(!is.na(transitivity(chile2, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(chile.bar2)))$V2))
+chile.bar.tt3 <- t.test(!is.na(transitivity(chile3, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(chile.bar3)))$V2))
+chile.bar.tt4 <- t.test(!is.na(transitivity(chile4, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(chile.bar4)))$V2))
+chile.bar.tt5 <- t.test(!is.na(transitivity(chile5, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(chile.bar5)))$V2))
+chile.bar.tt6 <- t.test(!is.na(transitivity(chile6, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(chile.bar6)))$V2))
+chile.bar.tt7 <- t.test(!is.na(transitivity(chile7, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(chile.bar7)))$V2))
+
+
+### Erdos
+
+chile.erdos.tt1 <- t.test(!is.na(transitivity(chile1, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(erdos.chile1)))$trans))
+chile.erdos.tt2 <- t.test(!is.na(transitivity(chile2, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(erdos.chile2)))$trans))
+chile.erdos.tt3 <- t.test(!is.na(transitivity(chile3, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(erdos.chile3)))$trans))
+chile.erdos.tt4 <- t.test(!is.na(transitivity(chile4, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(erdos.chile4)))$trans))
+chile.erdos.tt5 <- t.test(!is.na(transitivity(chile5, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(erdos.chile5)))$trans))
+chile.erdos.tt6 <- t.test(!is.na(transitivity(chile6, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(erdos.chile6)))$trans))
+chile.erdos.tt7 <- t.test(!is.na(transitivity(chile7, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(erdos.chile7)))$trans))
+
+
+### Watts
+
+chile.watts.tt1 <- t.test(!is.na(transitivity(chile1, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(watts.chile1)))$trans))
+chile.watts.tt2 <- t.test(!is.na(transitivity(chile2, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(watts.chile2)))$trans))
+chile.watts.tt3 <- t.test(!is.na(transitivity(chile3, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(watts.chile3)))$trans))
+chile.watts.tt4 <- t.test(!is.na(transitivity(chile4, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(watts.chile4)))$trans))
+chile.watts.tt5 <- t.test(!is.na(transitivity(chile5, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(watts.chile5)))$trans))
+chile.watts.tt6 <- t.test(!is.na(transitivity(chile6, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(watts.chile6)))$trans))
+chile.watts.tt7 <- t.test(!is.na(transitivity(chile7, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(watts.chile7)))$trans))
+
+
+chile.test  <-  as.data.frame(c(chile.bar.ct1$p.value,chile.bar.ct2$p.value,chile.bar.ct3$p.value,chile.bar.ct4$p.value,chile.bar.ct5$p.value,chile.bar.ct6$p.value,chile.bar.ct7$p.value))
+colnames(chile.test)[1] <- "constraint.bar"
+chile.test$constraint.erdos <- (c(chile.erdos.ct1$p.value,chile.erdos.ct2$p.value,chile.erdos.ct3$p.value,chile.erdos.ct4$p.value,chile.erdos.ct5$p.value,chile.erdos.ct6$p.value,chile.erdos.ct7$p.value))
+chile.test$constraint.watts <- (c(chile.watts.ct1$p.value,chile.watts.ct2$p.value,chile.watts.ct3$p.value,chile.watts.ct4$p.value,chile.watts.ct5$p.value,chile.watts.ct6$p.value,chile.watts.ct7$p.value))
+chile.test$trans.bar <- (c(chile.bar.tt1$p.value,chile.bar.tt2$p.value,chile.bar.tt3$p.value,chile.bar.tt4$p.value,chile.bar.tt5$p.value,chile.bar.tt6$p.value,chile.bar.tt7$p.value))
+chile.test$trans.erdos <- (c(chile.erdos.tt1$p.value,chile.erdos.tt2$p.value,chile.erdos.tt3$p.value,chile.erdos.tt4$p.value,chile.erdos.tt5$p.value,chile.erdos.tt6$p.value,chile.erdos.tt7$p.value))
+chile.test$trans.watts <- (c(chile.watts.tt1$p.value,chile.watts.tt2$p.value,chile.watts.tt3$p.value,chile.watts.tt4$p.value,chile.watts.tt5$p.value,chile.watts.tt6$p.value,chile.watts.tt7$p.value))
+chile.test <- format(round(chile.test, 2), nsmall = 3)
+View(chile.test)
+write.csv(chile.test, "chile_test.csv")

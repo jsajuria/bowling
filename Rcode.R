@@ -10,8 +10,8 @@ library(igraph)
 
 ### OWS datasets
 
-ows1 <- read.graph("ows1.net", format=c("pajek"))
-ows2 <- read.graph("ows2.net", format=c("pajek"))
+ows1a <- read.graph("ows1.net", format=c("pajek"))
+ows2a <- read.graph("ows2.net", format=c("pajek"))
 ows3 <- read.graph("ows3.net", format=c("pajek"))
 ows4 <- read.graph("ows4.net", format=c("pajek"))
 ows5 <- read.graph("ows5.net", format=c("pajek"))
@@ -638,20 +638,20 @@ chile.bar5 <- replicate(100, simulate.barabasi(chile5))
 chile.bar6 <- replicate(100, simulate.barabasi(chile6))
 chile.bar7 <- replicate(100, simulate.barabasi(chile7))
 
-bar.chile <- as.data.frame(cbind("constraint"=c(mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar1)))$constraint)),
-                                              mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar2)))$constraint)),
-                                              mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar3)))$constraint)),
-                                              mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar4)))$constraint)),
-                                              mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar5)))$constraint)),
-                                              mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar6)))$constraint)),
-                                              mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar7)))$constraint))),       	 
-                               "trans"=c(mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar1)))$trans)),
-                                         mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar2)))$trans)),
-                                         mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar3)))$trans)),
-                                         mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar4)))$trans)),
-                                         mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar5)))$trans)),
-                                         mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar6)))$trans)),
-                                         mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar7)))$trans)))))
+bar.chile <- as.data.frame(cbind("constraint"=c(mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar1)))$V1)),
+                                                mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar2)))$V1)),
+                                                mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar3)))$V1)),
+                                                mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar4)))$V1)),
+                                                mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar5)))$V1)),
+                                                mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar6)))$V1)),
+                                                mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar7)))$V1))),       	 
+                                 "trans"=c(mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar1)))$V2)),
+                                           mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar2)))$V2)),
+                                           mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar3)))$V2)),
+                                           mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar4)))$V2)),
+                                           mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar5)))$V2)),
+                                           mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar6)))$V2)),
+                                           mean(as.numeric(as.data.frame(t(as.data.frame(chile.bar7)))$V2)))))
 bar.chile$week <- c(1:7)
 bar.chile$type <- "barabasi"
 
@@ -680,16 +680,18 @@ c_ows <- rbind(ows.df,erdos.ows,watts.ows)
 write.csv(c_ows, file="~/Dropbox/UCL/PhD/APR paper/ows_final.csv")
 
 
-ows.plot1 <- ggplot(c_ows, aes(week,constraint, group=type, colour=type)) + geom_line() +
+ows.plot1 <- ggplot(c_ows, aes(week,constraint, group=type, colour=type)) + geom_smooth(se=F, span=0.5) +
+  geom_point() +
   scale_x_discrete("Weeks", breaks=c(1:13)) + 
   scale_y_continuous("Average Network Constraint") +
-  scale_color_hue("Type of Network", labels=c("Randon Graphs \nSimulations", "Observed Networks", "Watts-Strogatz \n Simulations")) +
+  scale_color_hue("Type of Network") +
   ggtitle("Network Constraint - OWS")
   
-ows.plot2 <- ggplot(c_ows, aes(week,trans, group=type, colour=type)) + geom_line() +
+ows.plot2 <- ggplot(c_ows, aes(week,trans, group=type, colour=type)) + geom_smooth(se=F, span=0.5) +
+  geom_point() +
   scale_x_discrete("Weeks", breaks=c(1:13)) + 
   scale_y_continuous("Average Local Clustering Coefficient") +
-  scale_color_hue("Type of Network", labels=c("Randon Graphs \nSimulations", "Observed Networks", "Watts-Strogatz \n Simulations")) +
+  scale_color_hue("Type of Network") +
   ggtitle("Local Clustering Coefficient - OWS")
 
 library(gridExtra)
@@ -711,29 +713,67 @@ qplot(week,trans,data=c_cif,color=type, fill=type, geom="line") +
   scale_color_hue("Type of Network", labels=c("Barabasi-Albert","Random Grahps", "Observed Values", "Watts-Strogatz"))
 
 
-cif.plot1 <- ggplot(c_cif, aes(week,constraint, group=type, colour=type)) + geom_smooth(se=F) +
+cif.plot1 <- ggplot(c_cif, aes(week,constraint, group=type, colour=type)) + geom_smooth(se=F, span=0.5) +
+  geom_point() +
   scale_x_discrete("Weeks", breaks=c(1:22)) + 
   scale_y_continuous("Average Network Constraint") +
-  scale_color_hue("Type of Network", labels=c("Randon Graphs \nSimulations", "Observed Networks", "Watts-Strogatz \n Simulations", "Barabasi")) +
+  scale_color_hue("Type of Network") +
   ggtitle("Network Constraint - IF")
 
-cif.plot2 <- ggplot(c_cif, aes(week,trans, group=type, colour=type)) + geom_smooth(se=F) +
+cif.plot2 <- ggplot(c_cif, aes(week,trans, group=type, colour=type)) + geom_smooth(se=F, span=0.5) +
+  geom_point() +
   scale_x_discrete("Weeks", breaks=c(1:22)) + 
   scale_y_continuous("Average Local Clustering Coefficient") +
-  scale_color_hue("Type of Network", labels=c("Randon Graphs \nSimulations", "Observed Networks", "Watts-Strogatz \n Simulations", "Barabasi")) +
+  scale_color_hue("Type of Network") +
   ggtitle("Local Clustering Coefficient - IF")
 
 cif.plot1
 cif.plot2
+
+
+### Chilean plots
+
+chile.df$type <- "observed"
+c_chile <- rbind(chile.df,erdos.chile,watts.chile, bar.chile)
+write.csv(c_chile, file="~/Dropbox/UCL/PhD/APR paper/chile_final.csv")
+
+qplot(week,constraint,data=c_chile,color=type, fill=type, geom="line") + 
+  scale_x_discrete("Weeks",breaks=c(1:22)) + 
+  scale_y_continuous("Network Constraint")
+scale_color_hue("Type of Network", labels=c("Barabasi-Albert","Random Grahps", "Observed Values", "Watts-Strogatz"))
+
+qplot(week,trans,data=c_chile,color=type, fill=type, geom="line") + 
+  scale_x_discrete(breaks=c(1:22)) +
+  scale_y_continuous("Ag. Local Clustering Coefficient") +
+  scale_color_hue("Type of Network", labels=c("Barabasi-Albert","Random Grahps", "Observed Values", "Watts-Strogatz"))
+
+
+chile.plot1 <- ggplot(c_chile, aes(week,constraint, group=type, colour=type)) + geom_smooth(se=F, span=0.5) +
+  geom_point() +
+  scale_x_discrete("Weeks", breaks=c(1:7)) + 
+  scale_y_continuous("Average Network Constraint") +
+  scale_color_hue("Type of Network") +
+  ggtitle("Network Constraint - 2013 Chilean Elections")
+
+chile.plot2 <- ggplot(c_chile, aes(week,trans, group=type, colour=type)) + geom_smooth(span=0.5) +
+  geom_point() +
+  scale_x_discrete("Weeks", breaks=c(1:7)) + 
+  scale_y_continuous("Average Local Clustering Coefficient") +
+  scale_color_hue("Type of Network") +
+  ggtitle("Local Clustering Coefficient - 2013 Chilean Elections")
+
+chile.plot1
+chile.plot2
+
 
 a <- as.data.frame(cbind(cif.df$constraint, cif.df$trans))
 cor(a)
 
 a <- as.data.frame(cbind(ows.df$constraint, ows.df$trans))
 cor(a)
-a <- as.data.frame(cbind(erdos.cif$constraint, erdos.cif$trans))
+a <- as.data.frame(cbind(chile.df$constraint, chile.df$trans))
 cor(a)
-a <- as.data.frame(cbind(watts.ows$constraint, watts.ows$trans))
-cor(a)
+
+chile.df
 
 
