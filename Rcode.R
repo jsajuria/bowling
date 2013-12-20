@@ -676,7 +676,7 @@ legend(1, 1, c("Observed","Randon graphs simulation", "Preferential Attachment s
 library(ggplot2)
 library(scales)
 
-c_ows <- rbind(ows.df,erdos.ows,watts.ows)
+c_ows <- rbind(ows.df,erdos.ows,watts.ows, bar.ows)
 write.csv(c_ows, file="~/Dropbox/UCL/PhD/APR paper/ows_final.csv")
 
 
@@ -696,7 +696,7 @@ ows.plot2 <- ggplot(c_ows, aes(week,trans, group=type, colour=type)) + geom_smoo
 
 library(gridExtra)
 
-grid.arrange(ows.plot1,ows.plot2, nrow=2)
+
 
 cif.df$type <- "observed"
 c_cif <- rbind(cif.df,erdos.cif,watts.cif, bar.cif)
@@ -776,4 +776,5 @@ cor(a)
 
 chile.df
 
+grid.arrange(ows.plot1,ows.plot2,cif.plot1, cif.plot2, chile.plot1, chile.plot2, boston.plot1, boston.plot2, nrow=4, ncol=2)
 
