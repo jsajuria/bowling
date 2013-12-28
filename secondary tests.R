@@ -191,6 +191,7 @@ bar.oakland$type <- "barabasi"
 
 
 c_oakland <- rbind(oakland.df,erdos.oakland, watts.oakland, bar.oakland)
+c_boston <- rbind(boston.df, erdos.boston, watts.boston, bar.boston)
 
 library(ggplot2)
 library(scales)
@@ -198,6 +199,86 @@ library(gridExtra)
 
 bar.oakland
 
-ggplot(c_oakland, aes(week, constraint, color=type)) + geom_smooth(se=F, spam=0.5) +
+oakland.df$type <- "observed"
+boston.df$type <- "observed"
+
+oakland.plot1 <- ggplot(c_oakland, aes(week, constraint, color=type)) + geom_smooth(se=F, spam=0.5) +
   geom_point() +
-  scale_x_discrete(breaks=c(1:13))
+  scale_color_hue("Type of Network") +
+  scale_x_discrete(breaks=c(1:13)) +
+  ggtitle("Network Constraint - #OccupyOakland")
+
+boston.plot1 <- ggplot(c_boston, aes(week, constraint, color=type)) + geom_smooth(se=F, spam=0.5) +
+  geom_point() +
+  scale_color_hue("Type of Network") +
+  scale_x_discrete(breaks=c(1:13)) +
+  ggtitle("Network Constraint - #OccupyBoston")
+
+grid.arrange(boston.plot1, oakland.plot1, nrow=2)
+
+# T-tests
+# Oakland
+
+## Constraint 
+
+### Barabasi
+
+oakland.bar.ct1 <- t.test(oakland1.constraint,as.numeric(as.data.frame(t(as.data.frame(oakland.bar1)))$V1))
+oakland.bar.ct2 <- t.test(oakland2.constraint,as.numeric(as.data.frame(t(as.data.frame(oakland.bar2)))$V1))
+oakland.bar.ct3 <- t.test(oakland3.constraint,as.numeric(as.data.frame(t(as.data.frame(oakland.bar3)))$V1))
+oakland.bar.ct4 <- t.test(oakland4.constraint,as.numeric(as.data.frame(t(as.data.frame(oakland.bar4)))$V1))
+oakland.bar.ct5 <- t.test(oakland5.constraint,as.numeric(as.data.frame(t(as.data.frame(oakland.bar5)))$V1))
+oakland.bar.ct6 <- t.test(oakland6.constraint,as.numeric(as.data.frame(t(as.data.frame(oakland.bar6)))$V1))
+oakland.bar.ct7 <- t.test(oakland7.constraint,as.numeric(as.data.frame(t(as.data.frame(oakland.bar7)))$V1))
+oakland.bar.ct8 <- t.test(oakland8.constraint,as.numeric(as.data.frame(t(as.data.frame(oakland.bar8)))$V1))
+oakland.bar.ct9 <- t.test(oakland9.constraint,as.numeric(as.data.frame(t(as.data.frame(oakland.bar9)))$V1))
+oakland.bar.ct10 <- t.test(oakland10.constraint,as.numeric(as.data.frame(t(as.data.frame(oakland.bar10)))$V1))
+oakland.bar.ct11 <- t.test(oakland11.constraint,as.numeric(as.data.frame(t(as.data.frame(oakland.bar11)))$V1))
+oakland.bar.ct12 <- t.test(oakland12.constraint,as.numeric(as.data.frame(t(as.data.frame(oakland.bar12)))$V1))
+oakland.bar.ct13 <- t.test(oakland13.constraint,as.numeric(as.data.frame(t(as.data.frame(oakland.bar13)))$V1))
+
+
+### Erdos
+
+oakland.erdos.ct1 <- t.test(oakland1.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.oakland1)))$constraint))
+oakland.erdos.ct2 <- t.test(oakland2.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.oakland2)))$constraint))
+oakland.erdos.ct3 <- t.test(oakland3.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.oakland3)))$constraint))
+oakland.erdos.ct4 <- t.test(oakland4.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.oakland4)))$constraint))
+oakland.erdos.ct5 <- t.test(oakland5.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.oakland5)))$constraint))
+oakland.erdos.ct6 <- t.test(oakland6.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.oakland6)))$constraint))
+oakland.erdos.ct7 <- t.test(oakland7.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.oakland7)))$constraint))
+oakland.erdos.ct8 <- t.test(oakland8.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.oakland8)))$constraint))
+oakland.erdos.ct9 <- t.test(oakland9.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.oakland9)))$constraint))
+oakland.erdos.ct10 <- t.test(oakland10.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.oakland10)))$constraint))
+oakland.erdos.ct11 <- t.test(oakland11.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.oakland11)))$constraint))
+oakland.erdos.ct12 <- t.test(oakland12.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.oakland12)))$constraint))
+oakland.erdos.ct13 <- t.test(oakland13.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.oakland13)))$constraint))
+
+
+### Watts
+
+oakland.watts.ct1 <- t.test(oakland1.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.oakland1)))$constraint))
+oakland.watts.ct2 <- t.test(oakland2.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.oakland2)))$constraint))
+oakland.watts.ct3 <- t.test(oakland3.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.oakland3)))$constraint))
+oakland.watts.ct4 <- t.test(oakland4.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.oakland4)))$constraint))
+oakland.watts.ct5 <- t.test(oakland5.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.oakland5)))$constraint))
+oakland.watts.ct6 <- t.test(oakland6.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.oakland6)))$constraint))
+oakland.watts.ct7 <- t.test(oakland7.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.oakland7)))$constraint))
+oakland.watts.ct8 <- t.test(oakland8.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.oakland8)))$constraint))
+oakland.watts.ct9 <- t.test(oakland9.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.oakland9)))$constraint))
+oakland.watts.ct10 <- t.test(oakland10.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.oakland10)))$constraint))
+oakland.watts.ct11 <- t.test(oakland11.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.oakland11)))$constraint))
+oakland.watts.ct12 <- t.test(oakland12.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.oakland12)))$constraint))
+oakland.watts.ct13 <- t.test(oakland13.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.oakland13)))$constraint))
+
+
+
+
+
+oakland.test <- (as.data.frame(c(oakland.erdos.ct1$p.value,oakland.erdos.ct2$p.value,oakland.erdos.ct3$p.value,oakland.erdos.ct4$p.value,oakland.erdos.ct5$p.value,oakland.erdos.ct6$p.value,oakland.erdos.ct7$p.value,oakland.erdos.ct8$p.value,oakland.erdos.ct9$p.value,oakland.erdos.ct10$p.value, oakland.erdos.ct11$p.value, oakland.erdos.ct12$p.value, oakland.erdos.ct13$p.value)))
+colnames(oakland.test)[1] <- "constraint.erdos"
+oakland.test$constraint.erdos <- (c(oakland.erdos.ct1$p.value,oakland.erdos.ct2$p.value,oakland.erdos.ct3$p.value,oakland.erdos.ct4$p.value,oakland.erdos.ct5$p.value,oakland.erdos.ct6$p.value,oakland.erdos.ct7$p.value,oakland.erdos.ct8$p.value,oakland.erdos.ct9$p.value,oakland.erdos.ct10$p.value, oakland.erdos.ct11$p.value, oakland.erdos.ct12$p.value, oakland.erdos.ct13$p.value))
+oakland.test$constraint.watts <- (c(oakland.watts.ct1$p.value,oakland.watts.ct2$p.value,oakland.watts.ct3$p.value,oakland.watts.ct4$p.value,oakland.watts.ct5$p.value,oakland.watts.ct6$p.value,oakland.watts.ct7$p.value,oakland.watts.ct8$p.value,oakland.watts.ct9$p.value,oakland.watts.ct10$p.value, oakland.watts.ct11$p.value, oakland.watts.ct12$p.value, oakland.watts.ct13$p.value))
+oakland.test <- format(round(oakland.test, 2), nsmall = 3)
+View(oakland.test)
+write.csv(oakland.test, "oakland_test.csv")

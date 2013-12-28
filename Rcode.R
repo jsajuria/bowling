@@ -63,7 +63,7 @@ ows.trans <- c(ows1.trans,ows2.trans,ows3.trans,ows4.trans,ows5.trans,ows6.trans
               ows13.trans)
 
 ows.df <- as.data.frame(cbind("constraint"=ows.cons,"trans"=ows.trans, "week"=c(1:13)))
-ows.df$type <- "ows"
+ows.df$type <- "observed"
 
 
 
@@ -154,6 +154,7 @@ cif.trans <- c(cif1.trans,cif2.trans,cif3.trans,cif4.trans,cif5.trans,cif6.trans
                cif19.trans,cif20.trans,cif21.trans,cif22.trans)
 
 cif.df <- as.data.frame(cbind("constraint"=cif.cons,"trans"=cif.trans,"week"=c(1:22)))
+cif.df$type <- "observed"
 
 ### Chile datasets 
 
@@ -190,7 +191,7 @@ chile.trans <- c(chile1.trans,chile2.trans,chile3.trans,chile4.trans,chile5.tran
                chile7.trans)
 
 chile.df <- as.data.frame(cbind("constraint"=chile.cons,"trans"=chile.trans, "week"=c(1:7)))
-chile.df$type <- "chile"
+chile.df$type <- "observed"
 
 
 ## Function to simulate erdos networks based on degree and transitivity
@@ -776,5 +777,5 @@ cor(a)
 
 chile.df
 
-grid.arrange(ows.plot1,ows.plot2,cif.plot1, cif.plot2, chile.plot1, chile.plot2, boston.plot1, boston.plot2, nrow=4, ncol=2)
+grid.arrange(ows.plot1,cif.plot1,chile.plot1, nrow=3)
 

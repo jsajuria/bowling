@@ -247,3 +247,120 @@ chile.test$trans.watts <- (c(chile.watts.tt1$p.value,chile.watts.tt2$p.value,chi
 chile.test <- format(round(chile.test, 2), nsmall = 3)
 View(chile.test)
 write.csv(chile.test, "chile_test.csv")
+
+# OWS
+
+## Constraint 
+
+### Barabasi
+
+ows.bar.ct1 <- t.test(ows1.constraint,as.numeric(as.data.frame(t(as.data.frame(ows.bar1)))$V1))
+ows.bar.ct2 <- t.test(ows2.constraint,as.numeric(as.data.frame(t(as.data.frame(ows.bar2)))$V1))
+ows.bar.ct3 <- t.test(ows3.constraint,as.numeric(as.data.frame(t(as.data.frame(ows.bar3)))$V1))
+ows.bar.ct4 <- t.test(ows4.constraint,as.numeric(as.data.frame(t(as.data.frame(ows.bar4)))$V1))
+ows.bar.ct5 <- t.test(ows5.constraint,as.numeric(as.data.frame(t(as.data.frame(ows.bar5)))$V1))
+ows.bar.ct6 <- t.test(ows6.constraint,as.numeric(as.data.frame(t(as.data.frame(ows.bar6)))$V1))
+ows.bar.ct7 <- t.test(ows7.constraint,as.numeric(as.data.frame(t(as.data.frame(ows.bar7)))$V1))
+ows.bar.ct8 <- t.test(ows8.constraint,as.numeric(as.data.frame(t(as.data.frame(ows.bar8)))$V1))
+ows.bar.ct9 <- t.test(ows9.constraint,as.numeric(as.data.frame(t(as.data.frame(ows.bar9)))$V1))
+ows.bar.ct10 <- t.test(ows10.constraint,as.numeric(as.data.frame(t(as.data.frame(ows.bar10)))$V1))
+ows.bar.ct11 <- t.test(ows11.constraint,as.numeric(as.data.frame(t(as.data.frame(ows.bar11)))$V1))
+ows.bar.ct12 <- t.test(ows12.constraint,as.numeric(as.data.frame(t(as.data.frame(ows.bar12)))$V1))
+ows.bar.ct13 <- t.test(ows13.constraint,as.numeric(as.data.frame(t(as.data.frame(ows.bar13)))$V1))
+
+### Erdos
+
+ows.erdos.ct1 <- t.test(ows1.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.ows1)))$constraint))
+ows.erdos.ct2 <- t.test(ows2.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.ows2)))$constraint))
+ows.erdos.ct3 <- t.test(ows3.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.ows3)))$constraint))
+ows.erdos.ct4 <- t.test(ows4.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.ows4)))$constraint))
+ows.erdos.ct5 <- t.test(ows5.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.ows5)))$constraint))
+ows.erdos.ct6 <- t.test(ows6.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.ows6)))$constraint))
+ows.erdos.ct7 <- t.test(ows7.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.ows7)))$constraint))
+ows.erdos.ct8 <- t.test(ows8.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.ows8)))$constraint))
+ows.erdos.ct9 <- t.test(ows9.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.ows9)))$constraint))
+ows.erdos.ct10 <- t.test(ows10.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.ows10)))$constraint))
+ows.erdos.ct11 <- t.test(ows11.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.ows11)))$constraint))
+ows.erdos.ct12 <- t.test(ows12.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.ows12)))$constraint))
+ows.erdos.ct13 <- t.test(ows13.constraint,as.numeric(as.data.frame(t(as.data.frame(erdos.ows13)))$constraint))
+
+
+### Watts
+
+ows.watts.ct1 <- t.test(ows1.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.ows1)))$constraint))
+ows.watts.ct2 <- t.test(ows2.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.ows2)))$constraint))
+ows.watts.ct3 <- t.test(ows3.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.ows3)))$constraint))
+ows.watts.ct4 <- t.test(ows4.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.ows4)))$constraint))
+ows.watts.ct5 <- t.test(ows5.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.ows5)))$constraint))
+ows.watts.ct6 <- t.test(ows6.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.ows6)))$constraint))
+ows.watts.ct7 <- t.test(ows7.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.ows7)))$constraint))
+ows.watts.ct8 <- t.test(ows8.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.ows8)))$constraint))
+ows.watts.ct9 <- t.test(ows9.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.ows9)))$constraint))
+ows.watts.ct10 <- t.test(ows10.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.ows10)))$constraint))
+ows.watts.ct11 <- t.test(ows11.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.ows11)))$constraint))
+ows.watts.ct12 <- t.test(ows12.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.ows12)))$constraint))
+ows.watts.ct13 <- t.test(ows13.constraint,as.numeric(as.data.frame(t(as.data.frame(watts.ows13)))$constraint))
+
+
+## Transitivity
+
+### Barabasi
+
+ows.bar.tt1 <- t.test(!is.na(transitivity(ows1, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(ows.bar1)))$V2))
+ows.bar.tt2 <- t.test(!is.na(transitivity(ows2, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(ows.bar2)))$V2))
+ows.bar.tt3 <- t.test(!is.na(transitivity(ows3, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(ows.bar3)))$V2))
+ows.bar.tt4 <- t.test(!is.na(transitivity(ows4, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(ows.bar4)))$V2))
+ows.bar.tt5 <- t.test(!is.na(transitivity(ows5, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(ows.bar5)))$V2))
+ows.bar.tt6 <- t.test(!is.na(transitivity(ows6, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(ows.bar6)))$V2))
+ows.bar.tt7 <- t.test(!is.na(transitivity(ows7, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(ows.bar7)))$V2))
+ows.bar.tt8 <- t.test(!is.na(transitivity(ows8, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(ows.bar8)))$V2))
+ows.bar.tt9 <- t.test(!is.na(transitivity(ows9, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(ows.bar9)))$V2))
+ows.bar.tt10 <- t.test(!is.na(transitivity(ows10, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(ows.bar10)))$V2))
+ows.bar.tt11 <- t.test(!is.na(transitivity(ows11, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(ows.bar11)))$V2))
+ows.bar.tt12 <- t.test(!is.na(transitivity(ows12, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(ows.bar12)))$V2))
+ows.bar.tt13 <- t.test(!is.na(transitivity(ows13, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(ows.bar13)))$V2))
+
+### Erdos
+
+ows.erdos.tt1 <- t.test(!is.na(transitivity(ows1, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(erdos.ows1)))$trans))
+ows.erdos.tt2 <- t.test(!is.na(transitivity(ows2, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(erdos.ows2)))$trans))
+ows.erdos.tt3 <- t.test(!is.na(transitivity(ows3, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(erdos.ows3)))$trans))
+ows.erdos.tt4 <- t.test(!is.na(transitivity(ows4, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(erdos.ows4)))$trans))
+ows.erdos.tt5 <- t.test(!is.na(transitivity(ows5, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(erdos.ows5)))$trans))
+ows.erdos.tt6 <- t.test(!is.na(transitivity(ows6, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(erdos.ows6)))$trans))
+ows.erdos.tt7 <- t.test(!is.na(transitivity(ows7, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(erdos.ows7)))$trans))
+ows.erdos.tt8 <- t.test(!is.na(transitivity(ows8, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(erdos.ows8)))$trans))
+ows.erdos.tt9 <- t.test(!is.na(transitivity(ows9, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(erdos.ows9)))$trans))
+ows.erdos.tt10 <- t.test(!is.na(transitivity(ows10, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(erdos.ows10)))$trans))
+ows.erdos.tt11 <- t.test(!is.na(transitivity(ows11, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(erdos.ows11)))$trans))
+ows.erdos.tt12 <- t.test(!is.na(transitivity(ows12, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(erdos.ows12)))$trans))
+ows.erdos.tt13 <- t.test(!is.na(transitivity(ows13, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(erdos.ows13)))$trans))
+
+
+### Watts
+
+ows.watts.tt1 <- t.test(!is.na(transitivity(ows1, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(watts.ows1)))$trans))
+ows.watts.tt2 <- t.test(!is.na(transitivity(ows2, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(watts.ows2)))$trans))
+ows.watts.tt3 <- t.test(!is.na(transitivity(ows3, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(watts.ows3)))$trans))
+ows.watts.tt4 <- t.test(!is.na(transitivity(ows4, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(watts.ows4)))$trans))
+ows.watts.tt5 <- t.test(!is.na(transitivity(ows5, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(watts.ows5)))$trans))
+ows.watts.tt6 <- t.test(!is.na(transitivity(ows6, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(watts.ows6)))$trans))
+ows.watts.tt7 <- t.test(!is.na(transitivity(ows7, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(watts.ows7)))$trans))
+ows.watts.tt8 <- t.test(!is.na(transitivity(ows8, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(watts.ows8)))$trans))
+ows.watts.tt9 <- t.test(!is.na(transitivity(ows9, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(watts.ows9)))$trans))
+ows.watts.tt10 <- t.test(!is.na(transitivity(ows10, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(watts.ows10)))$trans))
+ows.watts.tt11 <- t.test(!is.na(transitivity(ows11, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(watts.ows11)))$trans))
+ows.watts.tt12 <- t.test(!is.na(transitivity(ows12, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(watts.ows12)))$trans))
+ows.watts.tt13 <- t.test(!is.na(transitivity(ows13, type=c("local"))),as.numeric(as.data.frame(t(as.data.frame(watts.ows13)))$trans))
+
+
+ows.test  <-  as.data.frame(c(ows.bar.ct1$p.value,ows.bar.ct2$p.value,ows.bar.ct3$p.value,ows.bar.ct4$p.value,ows.bar.ct5$p.value,ows.bar.ct6$p.value,ows.bar.ct7$p.value,ows.bar.ct8$p.value,ows.bar.ct9$p.value,ows.bar.ct10$p.value, ows.bar.ct11$p.value, ows.bar.ct12$p.value, ows.bar.ct13$p.value))
+colnames(ows.test)[1] <- "constraint.bar"
+ows.test$constraint.erdos <- (c(ows.erdos.ct1$p.value,ows.erdos.ct2$p.value,ows.erdos.ct3$p.value,ows.erdos.ct4$p.value,ows.erdos.ct5$p.value,ows.erdos.ct6$p.value,ows.erdos.ct7$p.value,ows.erdos.ct8$p.value,ows.erdos.ct9$p.value,ows.erdos.ct10$p.value, ows.erdos.ct11$p.value, ows.erdos.ct12$p.value, ows.erdos.ct13$p.value))
+ows.test$constraint.watts <- (c(ows.watts.ct1$p.value,ows.watts.ct2$p.value,ows.watts.ct3$p.value,ows.watts.ct4$p.value,ows.watts.ct5$p.value,ows.watts.ct6$p.value,ows.watts.ct7$p.value,ows.watts.ct8$p.value,ows.watts.ct9$p.value,ows.watts.ct10$p.value, ows.watts.ct11$p.value, ows.watts.ct12$p.value, ows.watts.ct13$p.value))
+ows.test$trans.bar <- (c(ows.bar.tt1$p.value,ows.bar.tt2$p.value,ows.bar.tt3$p.value,ows.bar.tt4$p.value,ows.bar.tt5$p.value,ows.bar.tt6$p.value,ows.bar.tt7$p.value,ows.bar.tt8$p.value,ows.bar.tt9$p.value,ows.bar.tt10$p.value, ows.bar.tt11$p.value, ows.bar.tt12$p.value, ows.bar.tt13$p.value))
+ows.test$trans.erdos <- (c(ows.erdos.tt1$p.value,ows.erdos.tt2$p.value,ows.erdos.tt3$p.value,ows.erdos.tt4$p.value,ows.erdos.tt5$p.value,ows.erdos.tt6$p.value,ows.erdos.tt7$p.value,ows.erdos.tt8$p.value,ows.erdos.tt9$p.value,ows.erdos.tt10$p.value, ows.erdos.tt11$p.value, ows.erdos.tt12$p.value, ows.erdos.tt13$p.value))
+ows.test$trans.watts <- (c(ows.watts.tt1$p.value,ows.watts.tt2$p.value,ows.watts.tt3$p.value,ows.watts.tt4$p.value,ows.watts.tt5$p.value,ows.watts.tt6$p.value,ows.watts.tt7$p.value,ows.watts.tt8$p.value,ows.watts.tt9$p.value,ows.watts.tt10$p.value, ows.watts.tt11$p.value, ows.watts.tt12$p.value, ows.watts.tt13$p.value))
+ows.test <- format(round(ows.test, 2), nsmall = 3)
+View(ows.test)
+write.csv(ows.test, "ows_test.csv")
