@@ -1,8 +1,8 @@
-Bowling
+Are we Bowling at All?
 =======
 
-Code and data for the paper "Are we Bowling at all?" by Javier Sajuria, Jennifer vanHeerde-Hudson, David Hudson, Niheer Dasandi and Yannis Theocharis.
+Code and data for the paper "Are we Bowling at all? An Analysis of Social Capital in Online Networks" by Javier Sajuria, Jennifer vanHeerde-Hudson, David Hudson, Niheer Dasandi and Yannis Theocharis.
 
-The paper will be available soon, in the meantime, please send an email to j.sajuria[at]ucl.ac.uk if you need more details.
+The latest paper is available [here](https://www.google.com)
 
 Code by JS
